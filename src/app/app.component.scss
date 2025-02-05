@@ -1,0 +1,84 @@
+//imports
+
+@use "variables";
+@import "mixins";
+@import "variables";
+
+
+
+// variables
+
+        // $firstcolor:black;
+        // $secondcolor:yellow;
+        // $thirdcolor:purple;
+        // $fourthcolor:green;
+        // $fifthcolor:gold;
+
+
+
+
+
+// mixins
+
+        // @mixin button-structure{
+        //     width: 150px;
+        //     height: 30px;
+        //     border-radius: 15px;
+        //     margin: 10px;
+        //     border: 0;
+        // }
+
+        // @mixin button-delete{
+        //     width: 350px;
+        //     height: 50px;
+        //     border-radius: 35px;
+        //     margin: 10px;
+        //     border: 0;
+        // }
+
+    .parent{
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+
+//nested
+    .left{
+        width: 20%;
+        height: 100%;
+        background-color: aquamarine;
+        h1{
+            font-size: variables.$base-size*2;
+        }
+    }
+    .right{
+        width: 80%;
+        height: 100%;
+        background-color: rgb(142, 115, 33);
+    
+        
+        .one{
+            @include button-structure();
+            background-color: $fifthcolor;
+            }
+        .two{
+
+            @include button-delete();
+                
+                background-color: $firstcolor;
+                color: $fourthcolor
+            }
+        .three{
+           
+            @include button-structure();
+                background-color: $thirdcolor;
+             }
+
+//    Inheritance (Extend)
+
+
+        .one-round{
+            @extend .three;
+        }
+
+        }
+    }
